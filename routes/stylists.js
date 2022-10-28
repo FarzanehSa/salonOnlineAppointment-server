@@ -9,16 +9,16 @@ const express = require('express');
 const router  = express.Router();
 
 const {getAllStylists} = require('../db/queries/01_getAllStylists');
-const {getSchedule} = require('../db/queries/02_getSchedule');
+const {getAvailability} = require('../db/queries/02_getAvailability');
 
 router.get('/', (req, res) => {
 
   const f1 = getAllStylists();
-  const f2 = getSchedule();
+  const f2 = getAvailability();
 
   Promise.all([f1, f2])
-  .then(([stylists, schedule]) => {
-    res.json({ stylists, schedule });
+  .then(([stylists, availability]) => {
+    res.json({ stylists, availability });
     return;
   })
   .catch(err => {
