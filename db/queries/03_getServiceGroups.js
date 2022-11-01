@@ -2,9 +2,12 @@ const db = require('../connection');
 
 const getServiceGroups = () => {
   return db.query(`
-  SELECT id, service_groups.name as group
+  SELECT service_groups.id, service_groups.name as group,
+    array_agg(stylist_skills.stylist_id) as stylists
     FROM service_groups
-    ORDER BY id;`
+    JOIN stylist_skills ON stylist_skills.service_group_id = service_groups.id
+    GROUP By service_groups.id
+    ORDER BY service_groups.id;`
   )
     .then(data => {
       return data.rows;
