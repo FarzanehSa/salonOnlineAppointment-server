@@ -7,6 +7,8 @@ INSERT INTO stylists_availability (week_day_id, stylist_id, start_time, end_time
 INSERT INTO stylists_availability (week_day_id, stylist_id, start_time, end_time, off_day)
   VALUES (3, 1, '12:00', '17:00', false);
 INSERT INTO stylists_availability (week_day_id, stylist_id, start_time, end_time, off_day)
+  VALUES (1, 2, '11:00', '16:00', false);
+INSERT INTO stylists_availability (week_day_id, stylist_id, start_time, end_time, off_day)
   VALUES (5, 2, '9:00', '12:00', false);
 INSERT INTO stylists_availability (week_day_id, stylist_id, start_time, end_time, off_day)
   VALUES (6, 2, '9:00', '12:00', false);
