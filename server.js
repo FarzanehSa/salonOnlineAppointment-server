@@ -39,10 +39,12 @@ app.use(express.static('public'));
 // Separated Routes for each Resource
 const stylistsRoutes = require('./routes/stylists');
 const servicesRoutes = require('./routes/services');
+const bookingRoutes = require('./routes/booking');
 
 // Mount all resource routes
 app.use('/api/stylists', stylistsRoutes);
 app.use('/api/services', servicesRoutes);
+app.use('/api/booking', bookingRoutes);
 
 
 // Home page
