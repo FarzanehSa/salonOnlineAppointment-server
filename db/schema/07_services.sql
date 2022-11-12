@@ -7,5 +7,6 @@ CREATE TABLE services (
 
   name VARCHAR(255) NOT NULL,
   price SMALLINT NOT NULL,
-  description TEXT
+  description TEXT,
+  duration INTEGER NOT NULL
 );

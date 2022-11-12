@@ -6,5 +6,6 @@ CREATE TABLE schedule (
   stylist_id INTEGER REFERENCES stylists(id) ON DELETE CASCADE,
   user_id INTEGER NOT NULL,
   date Date NOT NULL,
+  end_time TIME NOT NULL,
   start_time TIME NOT NULL
 );
