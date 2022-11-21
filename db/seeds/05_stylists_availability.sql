@@ -1,7 +1,7 @@
 -- stylists_availability table
 
 INSERT INTO stylists_availability (week_day_id, stylist_id, start_time, end_time, off_day)
-  VALUES (1, 1, '9:00', '12:00', false);
+  VALUES (1, 1, '9:00', '17:00', false);
 INSERT INTO stylists_availability (week_day_id, stylist_id, start_time, end_time, off_day)
   VALUES (2, 1, '9:00', '12:00', false);
 INSERT INTO stylists_availability (week_day_id, stylist_id, start_time, end_time, off_day)
