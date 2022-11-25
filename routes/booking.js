@@ -7,10 +7,13 @@ const {getAllBookedForDate} = require('../db/queries/07_getAllBookedForDate');
 
 router.post('/', async(req, res) => {
 
-  const rec = req.body;
-  console.log(req.body);
-  console.log(req.body.day);
-  const wantedStylistsArray = rec.reqApps.map(row => {
+  const bookingReqs = req.body.bookingReqs;
+  const day = req.body.day;
+  const date = req.body.date;
+
+  console.log('🇨🇦 date \n', date, '\n',day, '\n', bookingReqs);
+
+  const wantedStylistsArray = bookingReqs.map(row => {
     const ids = row.stylists.map(stylist => stylist.id)
     return ids;
   });
@@ -19,8 +22,8 @@ router.post('/', async(req, res) => {
 
   const promiseArray = [];
 
-  for (const line of rec.reqApps) {
-    promiseArray.push(getBookingOptions(line.service.groupid, rec.day, line.service.id))
+  for (const line of bookingReqs) {
+    promiseArray.push(getBookingOptions(line.service.groupid, day, line.service.id))
   }
   const bookingOptionArray = await Promise.all(promiseArray);
   // console.log(bookingOptionArray);
@@ -35,10 +38,10 @@ router.post('/', async(req, res) => {
 
   console.log('🇨🇦 options \n',options);
 
-  const booked = await getAllBookedForDate(rec.reqApps[0].date);
+  const booked = await getAllBookedForDate(date);
   console.log('🇨🇦🇨🇦 booked \n',booked);
 
-  res.json({ options, booked, date: rec.reqApps[0].date});
+  res.json({ options, booked, date});
 });
 
 router.post('/:time', (req, res) => {
