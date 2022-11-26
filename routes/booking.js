@@ -44,25 +44,25 @@ router.post('/', async(req, res) => {
   res.json({ options, booked, date});
 });
 
-router.post('/:time', (req, res) => {
+router.post('/save', async(req, res) => {
 
-  const sTime = req.params.time;
-  const rec = req.body;
-  // console.log(rec);
-  // console.log(sTime);
-  const eTime = new Date(new Date("1970/01/01 " + sTime).getTime() + rec.duration * 60000).toLocaleTimeString('en-UK', { hour: '2-digit', minute: '2-digit', hour12: false });
+  const schedule = req.body.tasks.stylists;
+  const date = req.body.tasks.date;
 
-  addToSchedule(rec.stylistId, rec.userId, rec.date, sTime, eTime)
-  .then(data => {
-    console.log('✅','update booking done');
-    res.json(data);
-  })
-  .catch(err => {
-    console.log(err);
-    res
-    .status(500)
-    .json({ error: err.message });
-  });
+  const user = req.body.user;
+  console.log('⛑ schedule \n', schedule);
+  console.log('⛑ date \n', date);
+  console.log('👩🏻‍⚖️ User \n', user);
+
+
+  const promiseArray = [];
+
+  for (let i = 0; i < schedule.length; i++) {
+    promiseArray.push(addToSchedule(schedule[i].stylistId, schedule[i].serviceId, user.userId, date, schedule[i].startTime, schedule[i].endTime))
+  }
+  const savedData = await Promise.all(promiseArray);
+  console.log('✅','update booking done');
+  res.json(savedData);
 });
 
 module.exports = router;

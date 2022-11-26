@@ -7,7 +7,7 @@ const getBookingOptions = (groupId, dayName, serviceId) => {
   stylist_levels.name as level,
   to_char(stylists_availability.start_time,'HH24:MI') as start,
   to_char(stylists_availability.end_time,'HH24:MI') as end,
-  services.name as service,
+  services.name as service, services.id as serviceid,
   services.duration
     FROM stylists_availability
     JOIN stylists ON stylists.id = stylists_availability.stylist_id
