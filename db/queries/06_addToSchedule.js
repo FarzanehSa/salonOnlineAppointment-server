@@ -8,7 +8,7 @@ const addToSchedule = (stylistId, serviceId, userId, date, startTime, endTime) =
   RETURNING * ;`, [stylistId, serviceId, userId, date, startTime, endTime]
   )
     .then(data => {
-      return data.rows;
+      return data.rows[0];
     });
 }
 

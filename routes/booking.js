@@ -62,7 +62,7 @@ router.post('/save', async(req, res) => {
   }
   const savedData = await Promise.all(promiseArray);
   console.log('✅','update booking done');
-  res.json(savedData);
+  res.json({savedData, date});
 });
 
 module.exports = router;
