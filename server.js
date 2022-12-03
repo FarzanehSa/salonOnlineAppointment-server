@@ -37,11 +37,15 @@ app.use(
 app.use(express.static('public'));
 
 // Separated Routes for each Resource
+const registerRoutes = require('./routes/register');
+const loginRoutes = require('./routes/login');
 const stylistsRoutes = require('./routes/stylists');
 const servicesRoutes = require('./routes/services');
 const bookingRoutes = require('./routes/booking');
 
 // Mount all resource routes
+app.use('/api/register', registerRoutes);
+app.use('/api/login', loginRoutes);
 app.use('/api/stylists', stylistsRoutes);
 app.use('/api/services', servicesRoutes);
 app.use('/api/booking', bookingRoutes);

@@ -7,6 +7,5 @@ CREATE TABLE stylists_availability (
   stylist_id INTEGER REFERENCES stylists(id) ON DELETE CASCADE,
 
   start_time TIME,
-  end_time TIME,
-  off_day BOOLEAN NOT NULL DEFAULT true
+  end_time TIME
 );
