@@ -58,7 +58,7 @@ router.post('/save', async(req, res) => {
   const promiseArray = [];
 
   for (let i = 0; i < schedule.length; i++) {
-    promiseArray.push(addToSchedule(schedule[i].stylistId, schedule[i].serviceId, user.userId, date, schedule[i].startTime, schedule[i].endTime))
+    promiseArray.push(addToSchedule(schedule[i].stylistId, schedule[i].serviceId, user.id, date, schedule[i].startTime, schedule[i].endTime))
   }
   const savedData = await Promise.all(promiseArray);
   console.log('✅','update booking done');
