@@ -6,7 +6,7 @@ const getAllStylists = () => {
     stylist_levels.name as level, array_agg(stylist_skills.service_group_id) as skills
     FROM stylists
     JOIN stylist_levels ON stylists.stylist_level_id = stylist_levels.id
-    JOIN stylist_skills ON stylists.id = stylist_skills.stylist_id
+    LEFT JOIN stylist_skills ON stylists.id = stylist_skills.stylist_id
     GROUP BY stylists.id, stylist_levels.name
     ORDER BY stylists.id;`
   )
