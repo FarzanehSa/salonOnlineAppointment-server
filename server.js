@@ -43,6 +43,7 @@ const stylistsRoutes = require('./routes/stylists');
 const serviceGroupsRoutes = require('./routes/service-groups');
 const bookingRoutes = require('./routes/booking');
 const appointmentsRoutes = require('./routes/appointments');
+const servicesRoutes = require('./routes/services');
 
 // Mount all resource routes
 app.use('/api/register', registerRoutes);
@@ -51,6 +52,7 @@ app.use('/api/stylists', stylistsRoutes);
 app.use('/api/service-groups', serviceGroupsRoutes);
 app.use('/api/booking', bookingRoutes);
 app.use('/api/appointments', appointmentsRoutes);
+app.use('/api/services', servicesRoutes);
 
 
 // Home page
