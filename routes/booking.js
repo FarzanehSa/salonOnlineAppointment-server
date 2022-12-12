@@ -11,7 +11,7 @@ router.post('/', async(req, res) => {
   const day = req.body.day;
   const date = req.body.date;
 
-  console.log('🇨🇦 date \n', date, '\n',day, '\n', bookingReqs);
+  // console.log('🇨🇦 date \n', date, '\n',day, '\n', bookingReqs);
 
   const wantedStylistsArray = bookingReqs.map(row => {
     const ids = row.stylists.map(stylist => stylist.id)
@@ -36,10 +36,10 @@ router.post('/', async(req, res) => {
     }
   })
 
-  console.log('🇨🇦 options \n',options);
+  // console.log('🇨🇦 options \n',options);
 
   const booked = await getAllBookedForDate(date);
-  console.log('🇨🇦🇨🇦 booked \n',booked);
+  // console.log('🇨🇦🇨🇦 booked \n',booked);
 
   res.json({ options, booked, date});
 });
@@ -50,9 +50,9 @@ router.post('/save', async(req, res) => {
   const date = req.body.tasks.date;
 
   const user = req.body.user;
-  console.log('⛑ schedule \n', schedule);
-  console.log('⛑ date \n', date);
-  console.log('👩🏻‍⚖️ User \n', user);
+  // console.log('⛑ schedule \n', schedule);
+  // console.log('⛑ date \n', date);
+  // console.log('👩🏻‍⚖️ User \n', user);
 
 
   const promiseArray = [];

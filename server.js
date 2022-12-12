@@ -40,7 +40,7 @@ app.use(express.static('public'));
 const registerRoutes = require('./routes/register');
 const loginRoutes = require('./routes/login');
 const stylistsRoutes = require('./routes/stylists');
-const servicesRoutes = require('./routes/services');
+const serviceGroupsRoutes = require('./routes/service-groups');
 const bookingRoutes = require('./routes/booking');
 const appointmentsRoutes = require('./routes/appointments');
 
@@ -48,7 +48,7 @@ const appointmentsRoutes = require('./routes/appointments');
 app.use('/api/register', registerRoutes);
 app.use('/api/login', loginRoutes);
 app.use('/api/stylists', stylistsRoutes);
-app.use('/api/services', servicesRoutes);
+app.use('/api/service-groups', serviceGroupsRoutes);
 app.use('/api/booking', bookingRoutes);
 app.use('/api/appointments', appointmentsRoutes);
 
