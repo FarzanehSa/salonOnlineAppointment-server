@@ -7,6 +7,7 @@ const getAllBookedForDate = (date) => {
     to_char(end_time,'HH24:MI') as end
     FROM schedule
     WHERE date = $1
+    ORDER BY start_time
     ;`, [date]
   )
     .then(data => {

@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 
+const {getAllTimes} = require('../db/queries/00_getAllTimes');
 const {getServiceGroups} = require('../db/queries/03_getServiceGroups');
 const {getServices} = require('../db/queries/04_getServices');
 const {addServiceGroup} = require('../db/queries/dashboard/serviceGroup/01_addServiceGroup');
@@ -11,10 +12,11 @@ router.get('/', (req, res) => {
 
   const f1 = getServiceGroups();
   const f2 = getServices();
+  const f3 = getAllTimes();
 
-  Promise.all([f1, f2])
-  .then(([groups, services]) => {
-    res.json({ groups, services });
+  Promise.all([f1, f2, f3])
+  .then(([groups, services, timeTable]) => {
+    res.json({ groups, services, timeTable});
     return;
   })
   .catch(err => {
