@@ -24,8 +24,3 @@ INSERT INTO times (time, name) VALUES ('18:00', '6:00 pm');
 INSERT INTO times (time, name) VALUES ('18:30', '6:30 pm');
 INSERT INTO times (time, name) VALUES ('19:00', '7:00 pm');
 INSERT INTO times (time, name) VALUES ('19:30', '7:30 pm');
-INSERT INTO times (time, name) VALUES ('20:00', '8:00 pm');
-INSERT INTO times (time, name) VALUES ('20:30', '8:30 pm');
-
-
-

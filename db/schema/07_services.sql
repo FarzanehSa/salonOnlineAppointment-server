@@ -6,7 +6,8 @@ CREATE TABLE services (
   service_group_id INTEGER REFERENCES service_groups(id) ON DELETE CASCADE,
 
   name VARCHAR(255) NOT NULL,
-  price SMALLINT NOT NULL,
+  price INTEGER NOT NULL,
   description TEXT,
-  duration INTEGER NOT NULL
+  duration INTEGER NOT NULL,
+  active BOOLEAN NOT NULL DEFAULT true
 );
