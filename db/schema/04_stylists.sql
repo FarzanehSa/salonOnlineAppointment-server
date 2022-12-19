@@ -7,5 +7,6 @@ CREATE TABLE stylists (
 
   name VARCHAR(255) NOT NULL,
   image VARCHAR(512),
-  bio TEXT
+  bio TEXT,
+  active BOOLEAN NOT NULL DEFAULT true
 );

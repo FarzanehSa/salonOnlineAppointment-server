@@ -15,7 +15,7 @@ const getBookingOptions = (groupId, dayName, serviceId) => {
     JOIN week_days ON week_days.id = stylists_availability.week_day_id
     JOIN stylist_levels ON stylist_levels.id = stylists.stylist_level_id
     JOIN services ON stylist_skills.service_group_id = services.service_group_id
-    WHERE stylist_skills.service_group_id = $1 AND week_days.name = $2 AND services.id = $3
+    WHERE stylist_skills.service_group_id = $1 AND week_days.name = $2 AND services.id = $3 AND stylists.active IS true
     ;`, [groupId, dayName, serviceId]
   )
     .then(data => {

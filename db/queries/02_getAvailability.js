@@ -7,6 +7,7 @@ const getAvailability = () => {
     FROM stylists_availability
     JOIN stylists ON stylists_availability.stylist_id = stylists.id
     JOIN week_days ON stylists_availability.week_day_id = week_days.id
+    WHERE stylists.active IS true
     ORDER BY stylists.id;`
   )
     .then(data => {

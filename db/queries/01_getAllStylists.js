@@ -7,6 +7,7 @@ const getAllStylists = () => {
     FROM stylists
     JOIN stylist_levels ON stylists.stylist_level_id = stylist_levels.id
     LEFT JOIN stylist_skills ON stylists.id = stylist_skills.stylist_id
+    WHERE stylists.active IS true
     GROUP BY stylists.id, stylist_levels.name
     ORDER BY stylists.id;`
   )

@@ -44,6 +44,7 @@ const serviceGroupsRoutes = require('./routes/service-groups');
 const bookingRoutes = require('./routes/booking');
 const appointmentsRoutes = require('./routes/appointments');
 const servicesRoutes = require('./routes/services');
+const specRoutes = require('./routes/spec');
 
 // Mount all resource routes
 app.use('/api/register', registerRoutes);
@@ -53,7 +54,7 @@ app.use('/api/service-groups', serviceGroupsRoutes);
 app.use('/api/booking', bookingRoutes);
 app.use('/api/appointments', appointmentsRoutes);
 app.use('/api/services', servicesRoutes);
-
+app.use('/api/spec', specRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!
