@@ -66,57 +66,6 @@ router.post("/", (req, res) => {
   });
 });
 
-/* router.put("/", (req, res) => {
-
-  const {id, name, image, bio, level} = req.body.stylist;
-  const skills = req.body.skills;
-  console.log(skills);
-
-  const f1 = updateStylist(id, name, image, bio, level);
-  // true skills
-  const f2 = skills.filter(row => row.select === true).map(row => {
-    findSkill(row.id, id)
-    .then(data => {
-      if (!data) {
-        console.log('✅ Add skill');
-        addStylistSkill(row.id, id)
-        // .then(x => {
-        //   console.log('✅ Add skill');
-        // });
-      }
-    })
-  });
-  // false skills
-  const f3 = skills.filter(row => row.select === false).map(row => {
-    findSkill(row.id, id)
-    .then(data => {
-      if (data) {
-        console.log('❌ Delete skill');
-        deleteOneSkill(row.id, id)
-        // .then(x => {
-        //   console.log('❌ Delete skill');
-        // });
-      }
-    })
-  });
-
-  Promise.all([f1, f2, f3])
-  .then(([r1, r2, r3]) => {
-    getAllStylists()
-    .then(stylists => {
-      console.log('Send');
-      res.json({ stylists });
-      return;
-    })
-  })
-  .catch(err => {
-    console.log(err.message);
-    res
-    .status(500)
-    .json({ error: err.message });
-  });
-}); */
-
 router.put("/", async(req, res) => {
 
   const {id, name, image, bio, level} = req.body.stylist;
