@@ -1,4 +1,4 @@
--- open_hours table
+-- times table
 
 INSERT INTO times (time, name) VALUES ('8:00', '8:00 am');
 INSERT INTO times (time, name) VALUES ('8:30', '8:30 am');
