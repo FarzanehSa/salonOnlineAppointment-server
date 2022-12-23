@@ -14,7 +14,7 @@ router.post('/', async(req, res) => {
   findUser(info.email)
   .then(data => {
     if (data) {
-      res.json({ errorCode: 1, errorMsg: 'duplicate email' });
+      res.json({ errorCode: 1, errorMsg: "This email had sign up before, please login to your account." });
       return;
     } else {
       const hashPassword = bcrypt.hashSync(info.password, salt);

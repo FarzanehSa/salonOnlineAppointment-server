@@ -12,11 +12,11 @@ router.post('/', async(req, res) => {
   findUser(info.email)
   .then(data => {
     if (!data) {
-      res.json({ errorCode: 1, errorMsg: 'email not exist' });
+      res.json({ errorCode: 1, errorMsg: 'email or password is not correct' });
       return;
     } else {
       if (!bcrypt.compareSync(info.password, data.password)) {
-        res.json({ errorCode: 1, errorMsg: 'password no correct' });
+        res.json({ errorCode: 1, errorMsg: 'email or password is not correct' });
         return;
       } else {
         res.json({ user: data });
