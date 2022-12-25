@@ -46,6 +46,7 @@ const appointmentsRoutes = require('./routes/appointments');
 const servicesRoutes = require('./routes/services');
 const availabilityRoutes = require('./routes/availability');
 const specRoutes = require('./routes/spec');
+const reportsRoutes = require('./routes/reports');
 
 // Mount all resource routes
 app.use('/api/register', registerRoutes);
@@ -57,6 +58,7 @@ app.use('/api/appointments', appointmentsRoutes);
 app.use('/api/services', servicesRoutes);
 app.use('/api/availability', availabilityRoutes);
 app.use('/api/spec', specRoutes);
+app.use('/api/report', reportsRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!
