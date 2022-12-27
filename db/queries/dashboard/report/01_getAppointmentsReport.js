@@ -1,6 +1,6 @@
 const db = require('../../../connection');
 
-const getReport = (stylist, service, date, exactReq) => {
+const getAppointmentsReport = (stylist, service, date, exactReq) => {
 
   let timeSelect = ``;
   let stylistSelect = ``;
@@ -38,4 +38,4 @@ const getReport = (stylist, service, date, exactReq) => {
     });
   }
 
-  module.exports = { getReport };
+  module.exports = { getAppointmentsReport };

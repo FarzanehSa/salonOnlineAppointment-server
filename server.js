@@ -58,7 +58,7 @@ app.use('/api/appointments', appointmentsRoutes);
 app.use('/api/services', servicesRoutes);
 app.use('/api/availability', availabilityRoutes);
 app.use('/api/spec', specRoutes);
-app.use('/api/report', reportsRoutes);
+app.use('/api/reports', reportsRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!

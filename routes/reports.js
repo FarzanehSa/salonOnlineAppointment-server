@@ -8,23 +8,40 @@
 const express = require('express');
 const router  = express.Router();
 
-const {getReport} = require('../db/queries/dashboard/report/01_getReport');
+const {getAppointmentsReport} = require('../db/queries/dashboard/report/01_getAppointmentsReport');
+const {getCustomersReport} = require('../db/queries/dashboard/report/02_getCustomersReport');
 
 
-router.get('/', (req, res) => {
+router.get('/appointments', (req, res) => {
 
   const { stylist, service, date, dateAfter } = req.query;
-  console.log(stylist, service, date, dateAfter);
+  // console.log(stylist, service, date, dateAfter);
 
   const newD = date ? date : dateAfter;
   const exactReq = date ? true : false;
 
-  getReport(stylist, service, newD, exactReq)
+  getAppointmentsReport(stylist, service, newD, exactReq)
   .then(result => {
     res.json({ result });
     return;
   })
   .catch(err => {
+    console.log(err.message);
+    res
+    .status(500)
+    .json({ error: err.message });
+  });;
+});
+
+router.get('/customers', (req, res) => {
+
+  getCustomersReport()
+  .then(result => {
+    res.json({ result });
+    return;
+  })
+  .catch(err => {
+    console.log(err.message);
     res
     .status(500)
     .json({ error: err.message });
