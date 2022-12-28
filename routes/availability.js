@@ -29,13 +29,13 @@ router.post("/:id", async(req, res) => {
   const id = req.params.id;
   const ava = req.body.ava;
 
-  const validInfo = ava.filter(row => row.start && row.end);
-  const promiseArray = validInfo.map(row => {
-    return (addAvailabilities(row.dayid, id, row.start, row.end))
-  })
 
   try {
     const deletedData = await deleteAvailabilities(id);
+    const validInfo = ava.filter(row => row.start && row.end);
+    const promiseArray = validInfo.map(row => {
+      return (addAvailabilities(row.dayid, id, row.start, row.end))
+    })
     const newData = await Promise.all([...promiseArray]);
     const availability = await getStylistAvailability(id);
     res.json({ availability });

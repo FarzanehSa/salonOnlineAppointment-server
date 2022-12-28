@@ -7,7 +7,7 @@ const deleteAvailabilities= (id) => {
     RETURNING *;`, [id]
     )
     .then(data => {
-      return data.rows[0];
+      return data.rows;
     });
   }
 
