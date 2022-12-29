@@ -1,5 +1,5 @@
 // PG database client/connection setup
-const { Pool } = require('pg');
+const { Client } = require('pg');
 
 const dbParams = {
   host: process.env.DB_HOST,
@@ -9,7 +9,7 @@ const dbParams = {
   database: process.env.DB_NAME
 };
 
-const db = new Pool(dbParams);
+const db = new Client(dbParams);
 
 db.connect();
 
