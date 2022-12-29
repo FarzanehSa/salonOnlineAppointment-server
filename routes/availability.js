@@ -9,8 +9,6 @@ router.get("/:id", (req, res) => {
 
   const id = req.params.id;
 
-  console.log(id);
-
   getStylistAvailability(id)
   .then((availability) => {
     res.json({ availability });

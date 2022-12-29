@@ -12,8 +12,6 @@ router.get("/:id", (req, res) => {
   const time = req.query.time;
   const myStatus = req.query.status;
 
-  console.log(date, time);
-
   const f1 = getAllPastAppointmentsByUser(userId, date, time);
   const f2 = getAllComingAppointmentsByUser(userId, date, time);
 

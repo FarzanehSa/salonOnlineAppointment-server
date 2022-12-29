@@ -44,7 +44,7 @@ router.post("/", (req, res) => {
 
   addStylist(name.trim(), image, bio.trim(), level)
   .then(newStylist => {
-    console.log(newStylist);
+    // console.log(newStylist);
 
     const promiseArr = skills.filter(row => row.select === true).map(row => {
       addStylistSkill(row.id, newStylist.id)
@@ -82,7 +82,7 @@ router.put("/", async(req, res) => {
       for (const f of selectedSkills) {
         const data = await findSkill(f.id, id)
         if (!data) {
-          console.log('✅ Add skill');
+          // console.log('✅ Add skill');
           await addStylistSkill(f.id, id)
         }
       }
@@ -92,7 +92,7 @@ router.put("/", async(req, res) => {
       for (const f of unselectedSkills) {
         const data = await findSkill(f.id, id)
         if (data) {
-          console.log('❌ Delete skill');
+          // console.log('❌ Delete skill');
           await deleteOneSkill(f.id, id);
         }
       }
