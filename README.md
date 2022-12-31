@@ -22,6 +22,12 @@
   - It runs through each of the files, in order, and executes them against the database. 
   - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
 
+## App Description
+
+This is an app for beauty salons where customers can browse the services offered, stylists they prefer and their availability, and book an appointment at any time they choose. The website suggest the closest available appointment incase the customer's chosen date is unavailable. Customers will have the ability to check their past and upcoming appointments.
+
+Admin will be able to control everything the website offers, from modifying services like prices and duration or even adding a new service, to adding new stylists and adjusting all stylists' working hours and skills if needed. Similar to the customers' side of the website, admin can see all the appointments booked including the customers' names and their info.
+
 ## Dependencies
 
 - Node 10.x or above
